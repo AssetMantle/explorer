@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/((?!api/|assets/|logos/|favicon\\.|logo\\.|loader\\.css|test\\.html).*)", "destination": "/index.html" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
