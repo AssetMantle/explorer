@@ -1,0 +1,28 @@
+{
+  "chain_name": "assetmantle",
+  "registry_name": "assetmantle",
+  "api": [
+    { "provider": "AssetMantle", "address": "https://rest.assetmantle.one" }
+  ],
+  "rpc": [
+    { "provider": "AssetMantle", "address": "https://rpc.assetmantle.one" }
+  ],
+  "grpc": [
+    { "provider": "AssetMantle", "address": "https://grpc.assetmantle.one" }
+  ],
+  "sdk_version": "0.45.16",
+  "coin_type": "118",
+  "min_tx_fee": "1000",
+  "addr_prefix": "mantle",
+  "logo": "/logos/assetmantle.png",
+  "theme_color": "#f0a73a",
+  "assets": [
+    {
+      "base": "umntl",
+      "symbol": "MNTL",
+      "exponent": "6",
+      "coingecko_id": "assetmantle",
+      "logo": "/logos/assetmantle.png"
+    }
+  ]
+}
