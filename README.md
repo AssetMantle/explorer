@@ -1,56 +1,43 @@
-<div align="center">
+# AssetMantle Explorer
 
-![Ping Wallet](./public/logo.svg)
+The official block explorer for the [AssetMantle](https://assetmantle.one) chain (`mantle-1`), forked from [ping-pub/explorer](https://github.com/ping-pub/explorer).
 
-<h1>Ping Dashboard</h1>
+Live at: **https://explorer.assetmantle.one**
 
-**Ping Dashboard is not only an explorer but also a wallet and more ... 🛠**
+## Endpoints
 
-[![version](https://img.shields.io/github/tag/ping-pub/explorer.svg)](https://github.com/ping-pub/explorer/releases/latest)
-[![GitHub](https://img.shields.io/github/license/ping-pub/explorer.svg)](https://github.com/ping-pub/explorer/blob/master/LICENSE)
-[![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/bukotsunikki.svg?style=social&label=Follow%20%40ping_pub)](https://twitter.com/ping_pub)
-[![https://discord.gg/CmjYVSr6GW](https://img.shields.io/badge/discord-join-7289DA.svg?logo=discord&longCache=true&style=flat)](https://discord.gg/CmjYVSr6GW)
+The explorer ships with the AssetMantle aggregator endpoints baked in:
 
+- **RPC**: `https://rpc.assetmantle.one`
+- **REST**: `https://rest.assetmantle.one`
+- **gRPC**: `https://grpc.assetmantle.one`
 
-</div>
+The aggregator is a Caddy reverse proxy running on Akash that fronts a pool of community RPC nodes. See [assetmantle-infra](https://github.com/AssetMantle/assetmantle-infra) for the deployment configuration.
 
-`Ping Dashboard` is a light explorer for Cosmos-based Blockchains.  https://ping.pub .
+## Development
 
-## What sets Ping Dashboard apart from other explorers?
-**Ping Dashboard** stands out by providing a real-time exploration of blockchain data without relying on caching or pre-processing. It exclusively fetches data from the Cosmos full node via LCD/RPC endpoints, ensuring a truly authentic experience. This approach is referred to as the "Light Explorer."
+Requires Node 20 or 22 (Vercel deprecated 18).
 
-## Are you interested in listing your blockchain on https://ping.pub?
-
-To make this repository clean, please submit your request to https://github.com/ping-pub/ping.pub.git
-
-
-## Why does Ping Dashboard rely on official/trusted third-party public LCD/RPC servers?
-There are two primary reasons for this choice:
-
- - Trust: In a decentralized system, it is crucial to avoid relying solely on a single entity. By utilizing official/trusted third-party public LCD/RPC servers, Ping Dashboard ensures that the data is sourced from a network of trusted participants.
- - Limited Resources: As Ping Dashboard plans to list hundreds of Cosmos-based blockchains in the future, it is impractical for the Ping team to operate validators or full nodes for all of them. Leveraging trusted third-party servers allows for more efficient resource allocation.
-
-## Donation
-
-Your donation will help us make better products. Thanks in advance.
-
- - Address for ERC20: USDC, USDT, ETH
-```
-0x88BFec573Dd3E4b7d2E6BfD4D0D6B11F843F8aa1
+```sh
+yarn install --frozen-lockfile
+yarn dev          # local dev server
+yarn build        # production build → dist/
 ```
 
-#### Donations from project
+## Adding a chain
 
-- Point Network: 1000USDC and $1000 worth of POINT
-- Bitsong: 50k BTSG
-- IRISnet: 100k IRIS
+Drop a new JSON file into `chains/mainnet/` (or `chains/testnet/`). The Vite glob picks it up at build time. See `chains/mainnet/assetmantle.json` for the AssetMantle reference config.
 
-## Hire us
+## Upstream sync
 
-You can hire us by submitting an issue and fund the issue on [IssueHunter](https://issuehunt.io/r/ping-pub/explorer)
+Track upstream ping-pub:
 
+```sh
+git remote add upstream https://github.com/ping-pub/explorer.git
+git fetch upstream
+git merge upstream/master
+```
 
-## Contributors
+## License
 
-Developers: @liangping @dingyiming
-
+Apache-2.0 (inherited from upstream ping-pub/explorer).
